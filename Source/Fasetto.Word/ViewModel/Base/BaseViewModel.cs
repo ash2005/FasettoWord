@@ -1,10 +1,6 @@
-﻿
-using System;
-using System.ComponentModel;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace Fasetto.Word.Base
+namespace Fasetto.Word.ViewModel.Base
 {
     /// <summary>
     /// A base view model that fires Property Changed events as needed
@@ -36,7 +32,6 @@ namespace Fasetto.Word.Base
         }
 
         #region Command Helpers
-
         
 
         #endregion
