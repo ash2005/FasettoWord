@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Fasetto.Word.DataModel;
 using Fasetto.Word.ViewModel.Base;
 using Fasetto.Word.Window;
 
@@ -82,7 +83,7 @@ namespace Fasetto.Word.ViewModel
         /// <summary>
         /// The size of the resize border around the window
         /// </summary>
-        public int ResizeBorder { get; set; } = 6;
+        public int ResizeBorder { get; } = 6; // Borderless ? 0 : 6;
 
         /// <summary>
         /// The size of the resize border around the window, taking into account the outer margin
@@ -93,7 +94,7 @@ namespace Fasetto.Word.ViewModel
         /// <summary>
         /// The padding of the inner content of the main window
         /// </summary>
-        public Thickness InnerContentThickness => new Thickness(ResizeBorder);
+        public Thickness InnerContentThickness { set; get; } = new Thickness(0);
 
         /// <summary>
         /// The margin around the window to allow for a drop shadow
@@ -133,6 +134,10 @@ namespace Fasetto.Word.ViewModel
         /// </summary>
         public GridLength TitleHeightGridLength => new GridLength(TitleHeight + ResizeBorder);
 
+        /// <summary>
+        /// the current page of the application
+        /// </summary>
+        public ApplicationPage CurrentPage { set; get; } = ApplicationPage.Login;
         #endregion
 
         #region Commands
