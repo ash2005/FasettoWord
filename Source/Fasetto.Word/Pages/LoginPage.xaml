@@ -1,4 +1,4 @@
-﻿<Page x:Class="Fasetto.Word.Pages.LoginPage"
+﻿<local:BasePage x:Class="Fasetto.Word.Pages.LoginPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -46,7 +46,7 @@
                             <PasswordBox  Tag="Password" Margin="0 0 0 30" />
 
                             <!-- next Button -->
-                            <Button Content="Next" HorizontalAlignment="Center"  />
+                            <Button Content="Next" HorizontalAlignment="Center" Click="Button_Click" />
 
                         </StackPanel>
                     </Border>
@@ -59,4 +59,4 @@
         </Grid>
 
     </Border>
-</Page>
+</local:BasePage>
