@@ -13,6 +13,9 @@ namespace Fasetto.Word.ValueConverter
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null)
+                return null;
+
             // Find the appropriate page
             switch ((ApplicationPage)value)
             {

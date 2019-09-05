@@ -30,6 +30,11 @@ namespace Fasetto.Word.ViewModel
         /// </summary>
         private int _windowRadius = 10;
 
+        /// <summary>
+        /// The last known dock position
+        /// </summary>
+        private WindowDockPosition _dockPosition = WindowDockPosition.Undocked;
+
         #endregion
 
         #region Constructor
@@ -81,9 +86,14 @@ namespace Fasetto.Word.ViewModel
         public double WindowMinimumHeight { get; set; } = 400;
 
         /// <summary>
+        /// True if the window should be borderless because it is docked or maximized
+        /// </summary>
+        public bool Borderless => (_window.WindowState == WindowState.Maximized || _dockPosition != WindowDockPosition.Undocked);
+
+        /// <summary>
         /// The size of the resize border around the window
         /// </summary>
-        public int ResizeBorder { get; } = 6; // Borderless ? 0 : 6;
+        public int ResizeBorder => Borderless ? 0 : 6;
 
         /// <summary>
         /// The size of the resize border around the window, taking into account the outer margin
@@ -125,7 +135,7 @@ namespace Fasetto.Word.ViewModel
         public Thickness OuterMarginSizeThickness => new Thickness(WindowRadius);
 
         /// <summary>
-        /// The height of the title bar / captio of the window
+        /// The height of the title bar / caption of the window
         /// </summary>
         public int TitleHeight { get; set; } = 42;
 
