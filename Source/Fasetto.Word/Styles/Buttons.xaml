@@ -112,8 +112,6 @@
         </Setter>
     </Style>
 
-
-
     <!-- Text Button -->
     <Style x:Key="TextButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="Transparent" />
@@ -154,4 +152,6 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
 </ResourceDictionary>

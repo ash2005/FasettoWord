@@ -13,7 +13,7 @@
         <Grid>
             <Grid.Background>
                 <ImageBrush TileMode="Tile" ViewportUnits="Absolute"
-                            Viewport="0 0 500 500" 
+                            Viewport="0 0 500 600" 
                             ImageSource="/Images/Backgrounds/emoji-background.png" />
             </Grid.Background>
 
@@ -43,7 +43,7 @@
                             <TextBox  Tag="Email"  />
 
                             <!-- Password -->
-                            <TextBox  Tag="Password" Margin="0 0 0 30" />
+                            <PasswordBox  Tag="Password" Margin="0 0 0 30" />
 
                             <!-- next Button -->
                             <Button Content="Next" HorizontalAlignment="Center"  />

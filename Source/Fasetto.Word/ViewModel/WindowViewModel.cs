@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Fasetto.Word.DataModel;
 using Fasetto.Word.ViewModel.Base;
@@ -69,7 +70,7 @@ namespace Fasetto.Word.ViewModel
 
             // Fix the resizing issure
             var resizer = new WindowResizer(_window);
-        }
+           }
 
         #endregion
 
