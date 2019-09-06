@@ -21,7 +21,7 @@ namespace Fasetto.Word.AttachedProperties
                 return;
 
             // Set default value
-            HasTextProperties.SetValue(passwordBox);
+            HasTextProperty.SetValue(passwordBox);
 
             // Start listening out for password changes
             passwordBox.PasswordChanged += PasswordBox_PasswordChanged;
@@ -35,7 +35,7 @@ namespace Fasetto.Word.AttachedProperties
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             // Set the attached HasText value
-            HasTextProperties.SetValue((PasswordBox)sender);  
+            HasTextProperty.SetValue((PasswordBox)sender);  
         }
     }
 
@@ -43,7 +43,7 @@ namespace Fasetto.Word.AttachedProperties
     /// <summary>
     /// the HasText attached property for a <see cref="PasswordBox"/>
     /// </summary>
-    public class HasTextProperties : BaseAttachedProperty<HasTextProperties, bool>
+    public class HasTextProperty : BaseAttachedProperty<HasTextProperty, bool>
     {
         /// <summary>
         /// Sets the HasText property based on if the caller <see cref="PasswordBox"/> has any text

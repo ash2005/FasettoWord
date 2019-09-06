@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Remoting.Channels;
 using System.Windows;
 
 namespace Fasetto.Word.AttachedProperties

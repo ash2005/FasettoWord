@@ -1,21 +1,22 @@
-﻿using System.Windows.Controls;
-using Fasetto.Word.Animation;
+﻿using System.Security;
+using Fasetto.Word.ViewModel;
+using Fasetto.Word.ViewModel.Base;
 
 namespace Fasetto.Word.Pages
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : BasePage
+    public partial class LoginPage : BasePage<LoginViewModel>, IHavePassword
     {
         public LoginPage()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            this.AnimateOut();
-        }
+        /// <summary>
+        /// The secure password for this view
+        /// </summary>
+        public SecureString SecurePassword => PasswordText.SecurePassword;
     }
 }

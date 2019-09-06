@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Fasetto.Word.ValueConverter
@@ -14,8 +10,7 @@ namespace Fasetto.Word.ValueConverter
         {
             if (value == null) return Visibility.Hidden;
 
-            return parameter == null ? (bool) value ? Visibility.Hidden :
-                Visibility.Visible :
+            return parameter == null ? (bool) value ? Visibility.Hidden : Visibility.Visible :
                 (bool) value ? Visibility.Visible : Visibility.Hidden;
         }
 

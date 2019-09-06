@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using Fasetto.Word.DataModel;
 using Fasetto.Word.ViewModel.Base;
@@ -7,7 +6,7 @@ using Fasetto.Word.Window;
 
 namespace Fasetto.Word.ViewModel
 {
-    public class WindowViewModel : Base.BaseViewModel
+    public class WindowViewModel : BaseViewModel
     {
         #region Private Members
 
@@ -49,7 +48,7 @@ namespace Fasetto.Word.ViewModel
         /// </summary>
         public WindowViewModel(System.Windows.Window window)
         {
-            this._window = window;
+            _window = window;
 
             // listen out for the window resize
             _window.StateChanged += (source, e) =>

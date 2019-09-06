@@ -1,17 +1,21 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 using Fasetto.Word.Animation;
+using Fasetto.Word.ViewModel.Base;
 
 namespace Fasetto.Word.Pages
 {
     /// <summary>
     /// A base page for all pages to gain base functionality
     /// </summary>
-    public class BasePage : Page
+    public class BasePage<TVM> : Page where TVM : BaseViewModel, new()
     {
+        #region Private Member
+
+        private TVM _viewModel;
+
+        #endregion
         #region Public Properties
 
         /// <summary>
@@ -29,6 +33,26 @@ namespace Fasetto.Word.Pages
         /// </summary>
         public float SlideSeconds { get; set; } = 0.8f;
 
+        /// <summary>
+        /// The View Model associated w/ this Page
+        /// </summary>
+        public TVM ViewModel
+        {
+            get => _viewModel;
+            set
+            {
+                // if nothing has changed, return
+                if(_viewModel == value)
+                    return;
+
+                // update the value
+                _viewModel = value;
+
+                // Set the data context
+                this.DataContext = _viewModel;
+            }
+        }
+
         #endregion
 
         #region Constructor
@@ -44,6 +68,9 @@ namespace Fasetto.Word.Pages
 
             // Listen out for the page loading
             this.Loaded += BasePage_Loaded;
+
+            // create a new View Model
+            this.ViewModel = new TVM();
         }
 
         #endregion
