@@ -78,12 +78,12 @@ namespace Fasetto.Word.ViewModel
         /// <summary>
         /// Window Maximum Width
         /// </summary>
-        public double WindowMinimumWidth { get; set; } = 400;
+        public double WindowMinimumWidth { get; set; } = 800;
 
         /// <summary>
         /// Window minimum Height
         /// </summary>
-        public double WindowMinimumHeight { get; set; } = 400;
+        public double WindowMinimumHeight { get; set; } = 500;
 
         /// <summary>
         /// True if the window should be borderless because it is docked or maximized
@@ -147,7 +147,7 @@ namespace Fasetto.Word.ViewModel
         /// <summary>
         /// the current page of the application
         /// </summary>
-        public ApplicationPage CurrentPage { set; get; } = ApplicationPage.Login;
+        public ApplicationPage CurrentPage { set; get; } = ApplicationPage.Chat;
         #endregion
 
         #region Commands

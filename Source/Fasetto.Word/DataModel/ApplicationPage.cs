@@ -10,6 +10,11 @@ namespace Fasetto.Word.DataModel
         /// <summary>
         /// The Initial Login Page
         /// </summary>
-        Login = 0,
+        Login = 0,  
+        
+        /// <summary>
+        /// The Chat Page
+        /// </summary>
+        Chat = 1,
     }
 }

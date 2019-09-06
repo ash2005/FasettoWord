@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fasetto.Word"
         xmlns:local2="clr-namespace:Fasetto.Word.ValueConverter"
-        xmlns:valueConverter="clr-namespace:Fasetto.Word.ValueConverter"
+        xmlns:controls="clr-namespace:Fasetto.Word.Controls"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
-        x:Name="AppWindow"
         Icon="Images/Logo/logo-small.png"
         MinWidth="{Binding WindowMinimumWidth}"
         MinHeight="{Binding WindowMinimumHeight}"
-        Title="Welcome, friend!" Height="700" Width="900">
+        Title="Welcome, friend!" Height="600" Width="900">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -107,12 +106,6 @@
                                     <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
                                         <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
-                                    <!-- 
-                                                                            <Border.Background>
-                                            <ImageBrush TileMode="Tile" ViewportUnits="Absolute" ImageSource="/Images/Backgrounds/emoji-background.png"></ImageBrush>
-                                        </Border.Background>
-
-                                    -->
                                 </Grid>
                             </Grid>
                         </Border>
@@ -130,8 +123,27 @@
             CornerRadius="0" />
     </WindowChrome.WindowChrome>
 
-    <Grid Background="{StaticResource BackgroundVeryLightBrush}">
-        <Frame x:Name="MainFrame" 
-               Content="{Binding CurrentPage, Converter={local2:ApplicationPageValueConverter}}" />
-    </Grid>
+    <Border Background="{StaticResource WordBlueBrush}">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Blue background image -->
+            <Grid.Background>
+                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" ImageSource="/Images/Backgrounds/emoji-background.png"></ImageBrush>
+            </Grid.Background>
+
+            <Frame x:Name="MainFrame" 
+                   Content="{Binding CurrentPage, Converter={local2:ApplicationPageValueConverter}}" />
+
+            <!-- Side Menu -->
+            <controls:SideMenuControl>
+
+            </controls:SideMenuControl>
+
+        </Grid>
+    </Border>
+
 </Window>
