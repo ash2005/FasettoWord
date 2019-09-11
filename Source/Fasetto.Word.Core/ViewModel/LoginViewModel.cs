@@ -78,6 +78,9 @@ namespace Fasetto.Word.Core
             // TODO: Go to register page?
             //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
 
+            var applicationViewModel = IoC.IoC.Get<ApplicationViewModel>();
+            applicationViewModel.CurrentPage = ApplicationPage.Register;
+
             await Task.Delay(1);
         }
     }

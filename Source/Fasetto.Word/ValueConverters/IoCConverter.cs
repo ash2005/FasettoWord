@@ -15,7 +15,7 @@ namespace Fasetto.Word
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // Find the appropriate page
-            switch ((string) value)
+            switch ((string) parameter)
             {
                 case nameof(ApplicationViewModel):
                     return IoC.Get<ApplicationViewModel>();

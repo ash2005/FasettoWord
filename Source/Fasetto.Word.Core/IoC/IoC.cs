@@ -43,7 +43,7 @@ namespace Fasetto.Word.Core.IoC
         /// </summary>
         /// <typeparam name="T">The type to get</typeparam>
         /// <returns></returns>
-        public static object Get<T>()
+        public static T Get<T>()
         {
             return Kernel.Get<T>();
         }
