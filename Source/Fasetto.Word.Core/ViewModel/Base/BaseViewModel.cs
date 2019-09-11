@@ -9,7 +9,7 @@ namespace Fasetto.Word.Core
     /// <summary>
     /// A base view model that fires Property Changed events as needed
     /// </summary>
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class BaseViewModel : INotifyPropertyChanged
     {
         /// <summary>

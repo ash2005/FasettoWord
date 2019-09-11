@@ -1,8 +1,5 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Security;
+﻿using System.Security;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Fasetto.Word.Core
@@ -67,8 +64,8 @@ namespace Fasetto.Word.Core
 
                 var email = Email;
 
-                // IMPORTANT: Never store unsecure password in variable like this
-                var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
+                // IMPORTANT: Never store un-secure password in variable like this
+                var pass = (parameter as IHavePassword)?.SecurePassword.Unsecure();
             });
         }
 

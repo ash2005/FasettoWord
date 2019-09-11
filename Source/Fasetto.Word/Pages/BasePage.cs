@@ -1,8 +1,6 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
 using System.Threading.Tasks;
-using System.Windows.Media.Animation;
-using System;
 using Fasetto.Word.Core;
 
 namespace Fasetto.Word
