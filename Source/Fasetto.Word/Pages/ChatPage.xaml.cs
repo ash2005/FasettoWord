@@ -1,8 +1,6 @@
-﻿using System.Security;
-using Fasetto.Word.ViewModel;
-using Fasetto.Word.ViewModel.Base;
+﻿using Fasetto.Word.Core;
 
-namespace Fasetto.Word.Pages
+namespace Fasetto.Word
 {
     /// <summary>
     /// Interaction logic for ChatPage.xaml
@@ -13,5 +11,6 @@ namespace Fasetto.Word.Pages
         {
             InitializeComponent();
         }
+        
     }
 }

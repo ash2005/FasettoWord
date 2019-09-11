@@ -1,17 +1,20 @@
-﻿using Fasetto.Word.ViewModel;
+﻿using Fasetto.Word.Core;
+using System.Windows;
 
 namespace Fasetto.Word
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : System.Windows.Window
+    public partial class MainWindow : Window
     {
+        // public ApplicationViewModel ApplicationViewModel => new ApplicationViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
 
-            this.DataContext = new WindowViewModel(this);
+            DataContext = new WindowViewModel(this);
         }
     }
 }

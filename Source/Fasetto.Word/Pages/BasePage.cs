@@ -1,21 +1,25 @@
-﻿using System.Threading.Tasks;
+﻿using System.Windows.Controls;
 using System.Windows;
-using System.Windows.Controls;
-using Fasetto.Word.Animation;
-using Fasetto.Word.ViewModel.Base;
+using System.Threading.Tasks;
+using Fasetto.Word.Core;
 
-namespace Fasetto.Word.Pages
+namespace Fasetto.Word
 {
     /// <summary>
     /// A base page for all pages to gain base functionality
     /// </summary>
-    public class BasePage<TVM> : Page where TVM : BaseViewModel, new()
+    public class BasePage<VM> : Page
+        where VM : BaseViewModel, new()
     {
         #region Private Member
 
-        private TVM _viewModel;
+        /// <summary>
+        /// The View Model associated with this page
+        /// </summary>
+        private VM mViewModel;
 
         #endregion
+
         #region Public Properties
 
         /// <summary>
@@ -24,9 +28,9 @@ namespace Fasetto.Word.Pages
         public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideAndFadeInFromRight;
 
         /// <summary>
-        /// The animation the play when the page is first unloaded
+        /// The animation the play when the page is unloaded
         /// </summary>
-        public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutFromLeft;
+        public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToLeft;
 
         /// <summary>
         /// The time any slide animation takes to complete
@@ -34,22 +38,22 @@ namespace Fasetto.Word.Pages
         public float SlideSeconds { get; set; } = 0.8f;
 
         /// <summary>
-        /// The View Model associated w/ this Page
+        /// The View Model associated with this page
         /// </summary>
-        public TVM ViewModel
+        public VM ViewModel
         {
-            get => _viewModel;
+            get => mViewModel;
             set
             {
-                // if nothing has changed, return
-                if(_viewModel == value)
+                // If nothing has changed, return
+                if (mViewModel == value)
                     return;
 
-                // update the value
-                _viewModel = value;
+                // Update the value
+                mViewModel = value;
 
-                // Set the data context
-                this.DataContext = _viewModel;
+                // Set the data context for this page
+                DataContext = mViewModel;
             }
         }
 
@@ -58,56 +62,54 @@ namespace Fasetto.Word.Pages
         #region Constructor
 
         /// <summary>
-        /// Default Constructor
+        /// Default constructor
         /// </summary>
         public BasePage()
         {
-            // if we are animating in ,hide to begin with
-            if (this.PageLoadAnimation != PageAnimation.None)
-                this.Visibility = Visibility.Collapsed;
+            // If we are animating in, hide to begin with
+            if (PageLoadAnimation != PageAnimation.None)
+                Visibility = Visibility.Collapsed;
 
             // Listen out for the page loading
-            this.Loaded += BasePage_Loaded;
+            Loaded += BasePage_LoadedAsync;
 
-            // create a new View Model
-            this.ViewModel = new TVM();
+            // Create a default view model
+            ViewModel = new VM();
         }
 
         #endregion
 
         #region Animation Load / Unload
-       
 
         /// <summary>
         /// Once the page is loaded, perform any required animation
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void BasePage_Loaded(object sender, RoutedEventArgs e)
+        private async void BasePage_LoadedAsync(object sender, System.Windows.RoutedEventArgs e)
         {
-            AnimateIn();
+            // Animate the page in
+            await AnimateInAsync();
         }
 
         /// <summary>
-        /// animates the page in
+        /// Animates the page in
         /// </summary>
         /// <returns></returns>
-        public async Task AnimateIn()
+        public async Task AnimateInAsync()
         {
-            // Make sure we have something to do 
-            if(this.PageLoadAnimation == PageAnimation.None)
+            // Make sure we have something to do
+            if (PageLoadAnimation == PageAnimation.None)
                 return;
 
-            switch (this.PageLoadAnimation)
+            switch (PageLoadAnimation)
             {
                 case PageAnimation.SlideAndFadeInFromRight:
-                    // start the animation
-                    await this.SlideAndFadeInFromRight(this.SlideSeconds);
+
+                    // Start the animation
+                    await this.SlideAndFadeInFromRightAsync(SlideSeconds);
 
                     break;
-
-                default:
-                    return;
             }
         }
 
@@ -115,32 +117,23 @@ namespace Fasetto.Word.Pages
         /// Animates the page out
         /// </summary>
         /// <returns></returns>
-        public async Task AnimateOut()
+        public async Task AnimateOutAsync()
         {
-            // Make sure we have something to do 
-            if(this.PageUnloadAnimation == PageAnimation.None)
+            // Make sure we have something to do
+            if (PageUnloadAnimation == PageAnimation.None)
                 return;
 
-            switch (this.PageUnloadAnimation)
+            switch (PageUnloadAnimation)
             {
-                case PageAnimation.SlideAndFadeOutFromLeft:
-                    // start the animation
-                    await this.SlideAndFadeOutToLeft(this.SlideSeconds);
+                case PageAnimation.SlideAndFadeOutToLeft:
+
+                    // Start the animation
+                    await this.SlideAndFadeOutToLeftAsync(SlideSeconds);
 
                     break;
-
-                default:
-                    return;
             }
         }
 
-        #region Animation Helpers 
-
-        
-
         #endregion
-
-        #endregion
-
     }
 }

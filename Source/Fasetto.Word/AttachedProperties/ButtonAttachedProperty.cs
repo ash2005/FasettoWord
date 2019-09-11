@@ -1,8 +1,7 @@
-﻿namespace Fasetto.Word.AttachedProperties
+﻿namespace Fasetto.Word
 {
-
     /// <summary>
-    /// the IsBusy attached property for anything that wants to flag it is busy
+    /// The IsBusy attached property for a anything that wants to flag if the control is busy
     /// </summary>
     public class IsBusyProperty : BaseAttachedProperty<IsBusyProperty, bool>
     {

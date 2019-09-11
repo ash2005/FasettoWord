@@ -1,8 +1,7 @@
-﻿using System.Security;
-using Fasetto.Word.ViewModel;
-using Fasetto.Word.ViewModel.Base;
+﻿using Fasetto.Word.Core;
+using System.Security;
 
-namespace Fasetto.Word.Pages
+namespace Fasetto.Word
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml
@@ -15,7 +14,7 @@ namespace Fasetto.Word.Pages
         }
 
         /// <summary>
-        /// The secure password for this view
+        /// The secure password for this login page
         /// </summary>
         public SecureString SecurePassword => PasswordText.SecurePassword;
     }

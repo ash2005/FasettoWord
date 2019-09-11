@@ -8,9 +8,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Fasetto.Word")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Giesecke & Devrient Group")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Fasetto.Word")]
-[assembly: AssemblyCopyright("Copyright © Giesecke & Devrient Group 2019")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
